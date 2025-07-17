@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>かんたん事業計画ツール</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 5px; margin-top: 5px; }
+    button { margin-top: 20px; padding: 10px 20px; }
+    .output { margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>かんたん事業計画ツール（デモ）</h1>
+
+  <button onclick="fillSampleData()">▶ ダミーデータを入力する</button>
+
+  <label>事業名</label>
+  <input type="text" id="businessName">
+
+  <label>事業概要</label>
+  <textarea id="businessDescription"></textarea>
+
+  <label>自己資金（円）</label>
+  <input type="number" id="ownFunds">
+
+  <label>借入額（円）</label>
+  <input type="number" id="loanAmount">
+
+  <label>金利（年利%）</label>
+  <input type="number" step="0.1" id="interestRate">
+
+  <label>返済期間（年）</label>
+  <input type="number" id="repaymentYears">
+
+  <button onclick="calculateRepayment()">📄 計画書を表示する</button>
+
+  <div class="output" id="planOutput"></div>
+
+  <script>
+    function fillSampleData() {
+      document.getElementById('businessName').value = '沖縄タコス専門店 OkiTacos';
+      document.getElementById('businessDescription').value = '国際通り近くにて、地元食材を活用した本格タコスを提供。観光客と地元民の両方に支持される店舗を目指します。';
+      document.getElementById('ownFunds').value = 1500000;
+      document.getElementById('loanAmount').value = 3000000;
+      document.getElementById('interestRate').value = 1.5;
+      document.getElementById('repaymentYears').value = 5;
+    }
+
+    function calculateRepayment() {
+      const businessName = document.getElementById('businessName').value;
+      const businessDescription = document.getElementById('businessDescription').value;
+      const ownFunds = parseInt(document.getElementById('ownFunds').value);
+      const loanAmount = parseInt(document.getElementById('loanAmount').value);
+      const interestRate = parseFloat(document.getElementById('interestRate').value);
+      const years = parseInt(document.getElementById('repaymentYears').value);
+
+      const months = years * 12;
+      const monthlyPrincipal = loanAmount / months;
+      let totalInterest = 0;
+      let remainingPrincipal = loanAmount;
+      for (let i = 0; i < months; i++) {
+        const monthlyInterest = remainingPrincipal * (interestRate / 100) / 12;
+        totalInterest += monthlyInterest;
+        remainingPrincipal -= monthlyPrincipal;
+      }
+      const totalRepayment = loanAmount + totalInterest;
+
+      document.getElementById('planOutput').innerHTML = `
+        <h2>📄 事業計画書（サンプル）</h2>
+        <p><strong>事業名：</strong>${businessName}</p>
+        <p><strong>概要：</strong>${businessDescription}</p>
+        <p><strong>自己資金：</strong>${ownFunds.toLocaleString()} 円</p>
+        <p><strong>借入額：</strong>${loanAmount.toLocaleString()} 円</p>
+        <p><strong>返済期間：</strong>${years} 年</p>
+        <p><strong>金利：</strong>${interestRate} %</p>
+        <p><strong>元金均等返済の総返済額：</strong>${Math.round(totalRepayment).toLocaleString()} 円</p>
+        <p><strong>利息総額：</strong>${Math.round(totalInterest).toLocaleString()} 円</p>
+        <p><strong>月々返済額（初月）：</strong>${Math.round(monthlyPrincipal + loanAmount * (interestRate / 100) / 12).toLocaleString()} 円</p>
+      `;
+    }
+  </script>
+</body>
+</html>
