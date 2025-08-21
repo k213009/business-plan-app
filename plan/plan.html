@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>創業計画書作成</title>
+  <link rel="stylesheet" href="../assets/css/stylesheet.css">
+  <link rel="stylesheet" href="plan-form.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body class="plan-page">
+<div id="pdf-render-area" style="display:none;"></div>
+<header>
+   <div class="header-left">
+       <img class="logo" src="../assets/images/icon.png" alt="Hajimeロゴ">
+    </div>
+     
+</header>
+
+<h1>創業計画書</h1>
+
+<form id="business-plan-form">
+
+ <div class="form-section">
+  <div class="motive-section-wrapper">
+      <button id="dummy-fill" type="button" class="button">ダミー入力</button> 
+  </div>
+ </div>
+
+  <div class="form-section">       
+    <label for="representative-name">代表者名</label>
+    <input type="text" id="representative-name" name="representative-name" placeholder="例：創楽 はじめ">
+  </div>
+
+   <div class="form-section">    
+    <label for="industry-type">事業の業種を選択してください</label>
+   <select name="industry_type" id="industry-type">
+      <option value="指定なし">選択してください</option>
+      <option value="飲食店・カフェ">飲食店・カフェ</option>
+      <option value="小売・卸売業">小売・卸売業</option>
+      <option value="美容・リラクゼーション">美容・リラクゼーション</option>
+      <option value="IT・Webサービス">IT・Webサービス</option>
+      <option value="コンサルティング・専門職">コンサルティング・専門職</option>
+      <option value="教育・学習支援">教育・学習支援</option>
+      <option value="医療・福祉・介護">医療・福祉・介護</option>
+      <option value="不動産業">不動産業</option>
+      <option value="建設業">建設業</option>
+      <option value="クリエイティブ・制作">クリエイティブ・制作</option>
+      <option value="宿泊・観光・レジャー">宿泊・観光・レジャー</option>
+      <option value="運輸・配送">運輸・配送</option>
+      <option value="製造業">製造業</option>
+      <option value="農業・漁業">農業・漁業</option>
+      <option value="その他">その他</option>
+    </select>
+   </div>
+
+  <section class="accordion">
+    <button type="button" class="accordion-toggle">1. 創業の動機</button>
+    <div class="accordion-content">
+      <textarea id="motive" name="motive" rows="4" maxlength="300" placeholder="（300字以内）例：長年のパン職人としての経験を活かし..."></textarea>
+    </div>
+  </section>
+
+  <section class="accordion">
+    <button type="button" class="accordion-toggle">2. 経営者の略歴（最大5行）</button>
+    <div class="accordion-content">
+      <div id="history-container"></div>
+      <button type="button" id="add-history">＋ 行を追加</button>
+    </div>
+  </section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">3. 取扱商品・サービス</button>
+  <div class="accordion-content">
+    <div id="products-container">
+        <input type="text" id="product_1" name="product_1" maxlength="50" placeholder="① 商品・サービス名（50字以内）">
+        <input type="text" id="product_2" name="product_2" maxlength="50" placeholder="② 商品・サービス名（50字以内）">
+        <input type="text" id="product_3" name="product_3" maxlength="50" placeholder="③ 商品・サービス名（50字以内）">
+    </div>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">4. セールスポイント（自社の強み）</button>
+  <div class="accordion-content">
+    <textarea id="sales_point" name="sales_point" maxlength="200" placeholder="（200字以内）"></textarea>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">5. 販売方法・戦略（集客方法）</button>
+  <div class="accordion-content">
+    <textarea id="target" name="target" maxlength="300" placeholder="（300字以内）"></textarea>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">6. 競合・市場など自社をとりまく状況</button>
+  <div class="accordion-content">
+    <textarea id="competition" name="competition" maxlength="300" placeholder="（300字以内）"></textarea>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">7. 取引先と取引条件</button>
+  <div class="accordion-content">
+    <label for="partners">取引先（予定）</label>
+    <textarea id="partners" name="partners" rows="3" maxlength="150" placeholder="（150字以内）例：〇〇製粉（仕入）など"></textarea>
+    
+    <label for="partners_conditions">取引先との取引条件</label>
+    <textarea id="partners_conditions" name="partners_conditions" rows="3" maxlength="150" placeholder="（150字以内）例：月末締め、翌月末払い"></textarea>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">8. 人員計画と事業所情報</button>
+  <div class="accordion-content">
+    <h3>人員計画（最大5名まで）</h3>
+    <div id="staff-container"></div>
+    <button type="button" id="add-staff">＋ 人員を追加</button>
+    <hr>
+    <h3>事業所情報</h3>
+    <label for="office-location">所在地：</label>
+    <input type="text" id="office-location" name="office-location" maxlength="100" placeholder="（100字以内）例：沖縄県那覇市〇〇1-2-3" />
+    <label for="office-type">事業所の形態：</label>
+    <select id="office-type" name="office-type">
+      <option value="">選択してください</option>
+      <option value="owned">自己所有</option>
+      <option value="rented">賃貸物件</option>
+      <option value="combined">店舗兼住宅</option>
+      <option value="other">その他</option>
+    </select>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">9. 資金計画</button>
+  <div class="accordion-content">
+    <h3>必要な資金</h3>
+    <label for="equipment-cost">設備資金（合計）</label>
+    <input type="number" id="equipment-cost" name="equipment-cost" placeholder="例：3000000" />
+    <label>内訳：</label>
+    <input type="text" name="equipment_detail1" maxlength="50" placeholder="（50字以内）" />
+    <input type="text" name="equipment_detail2" maxlength="50" placeholder="（50字以内）" />
+    <label for="operating-cost">運転資金（合計）</label>
+    <input type="number" id="operating-cost" name="operating-cost" placeholder="例：1000000" />
+    <label>内訳：</label>
+    <input type="text" name="operating_detail1" maxlength="50" placeholder="（50字以内）" />
+    <input type="text" name="operating_detail2" maxlength="50" placeholder="（50字以内）" />
+    <label>必要な資金 合計:</label>
+    <input type="text" id="required_funds_total" name="required_funds_total" readonly>
+    <hr>
+    <h3>資金の調達方法</h3>
+    <label for="self-funding">自己資金</label>
+    <input type="number" id="self-funding" name="self-funding" placeholder="例：1000000" />
+    <label for="family-loan">親族からの借入</label>
+    <input type="number" id="family-loan" name="family-loan" placeholder="例：500000" />
+    <label for="jfc-loan">公庫からの借入</label>
+    <input type="number" id="jfc-loan" name="jfc-loan" placeholder="例：1500000" />
+    <label for="bank-loan">金融機関からの借入</label>
+    <input type="number" id="bank-loan" name="bank-loan" placeholder="例：0" />
+    <label for="other-funding">その他</label>
+    <input type="text" id="other-funding" name="other-funding" maxlength="50" placeholder="（50字以内）" />
+    <label>資金の調達方法 合計:</label>
+    <input type="text" id="funding_sources_total" name="funding_sources_total" readonly>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">10. 売上・経費・利益計画（月平均）</button>
+  <div class="accordion-content">
+    <h3>月次計画の入力</h3>
+    <div class="financial-plan-table">
+    <table>
+        <thead>
+            <tr>
+                <th>項目</th>
+                <th>創業当初（月次）</th>
+                <th>1年後（月次）</th>
+                <th>算出根拠（150字以内）</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>売上高</td>
+                <td><input type="number" class="financial-input" id="sales_initial" name="sales_initial"></td>
+                <td><input type="number" class="financial-input" id="sales_on_track" name="sales_on_track"></td>
+                <td><input type="text" id="sales_basis" name="sales_basis" maxlength="150"></td>
+            </tr>
+            <tr>
+                <td>売上原価（仕入等）</td>
+                <td><input type="number" class="financial-input" id="cogs_initial" name="cogs_initial"></td>
+                <td><input type="number" class="financial-input" id="cogs_on_track" name="cogs_on_track"></td>
+                <td><input type="text" id="cogs_basis" name="cogs_basis" maxlength="150"></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 20px;">人件費</td>
+                <td><input type="number" class="financial-input" id="personnel_initial" name="personnel_initial"></td>
+                <td><input type="number" class="financial-input" id="personnel_on_track" name="personnel_on_track"></td>
+                <td><input type="text" id="personnel_basis" name="personnel_basis" maxlength="150"></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 20px;">家賃</td>
+                <td><input type="number" class="financial-input" id="rent_initial" name="rent_initial"></td>
+                <td><input type="number" class="financial-input" id="rent_on_track" name="rent_on_track"></td>
+                <td><input type="text" id="rent_basis" name="rent_basis" maxlength="150"></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 20px;">支払利息</td>
+                <td><input type="number" class="financial-input" id="interest_initial" name="interest_initial"></td>
+                <td><input type="number" class="financial-input" id="interest_on_track" name="interest_on_track"></td>
+                <td><input type="text" id="interest_basis" name="interest_basis" maxlength="150"></td>
+            </tr>
+            <tr>
+                <td style="padding-left: 20px;">その他</td>
+                <td><input type="number" class="financial-input" id="other_exp_initial" name="other_exp_initial"></td>
+                <td><input type="number" class="financial-input" id="other_exp_on_track" name="other_exp_on_track"></td>
+                <td><input type="text" id="other_exp_basis" name="other_exp_basis" maxlength="150"></td>
+            </tr>
+            <tr style="font-weight: bold;">
+                <td>利益</td>
+                <td><input type="text" id="profit_initial" name="profit_initial" readonly></td>
+                <td><input type="text" id="profit_on_track" name="profit_on_track" readonly></td>
+                <td>(自動計算)</td>
+            </tr>
+            <tr>
+                <td>返済金額（借入金）</td>
+                <td><input type="number" class="financial-input" id="repayment_initial" name="repayment_initial"></td>
+                <td><input type="number" class="financial-input" id="repayment_on_track" name="repayment_on_track"></td>
+                <td><input type="text" id="repayment_basis" name="repayment_basis" maxlength="150"></td>
+            </tr>
+            <tr style="font-weight: bold; background-color: #e6f2ff;">
+                <td>キャッシュフロー</td>
+                <td><input type="text" id="cashflow_initial" name="cashflow_initial" readonly></td>
+                <td><input type="text" id="cashflow_on_track" name="cashflow_on_track" readonly></td>
+                <td>(自動計算)</td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="accordion">
+  <button type="button" class="accordion-toggle">11. 事業の見通し・成長戦略</button>
+  <div class="accordion-content">
+    <textarea id="future-vision" name="future-vision" rows="8" maxlength="300" placeholder="（300字以内）例：初年度は店舗運営に集中し..."></textarea>
+  </div>
+</section>
+
+
+<div id="confirm-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);">
+  <div style="background:#fff; max-width:800px; margin:50px auto; padding:20px; border-radius:12px; overflow-y:auto; max-height:80vh;">
+    <h2>入力内容の確認</h2>
+    <div id="confirm-content" style="white-space: pre-wrap;"></div>
+    <button id="close-confirm" type="button">戻る</button>
+    <button id="download-pdf-btn" type="button">PDFで出力する</button>
+  </div>
+</div>
+
+<div class="form-section">
+ <div class="show-section-wrapper">
+  <button id="show-confirm" type="button" class="s-button">入力内容を確認する</button>
+  <button type="button" id="evaluate-ai-button" class="e-button">この内容をAIに評価してもらう</button>
+
+    <div id="modal-overlay" class="hidden"></div>
+    <div id="modal-content" class="hidden">
+        <h2>AIからの評価・アドバイス</h2>
+        <div id="ai-response-text">
+            <p>ここにAIからの評価結果が表示されます...</p>
+        </div>
+    </div>
+  <button id="reset" type="button" class="r-button">リセットする</button>
+  <button id="save-button" type="button" class="sa-button">保存する</button>
+ </div>
+</div>
+</form>
+
+
+<footer>
+    <div class="container footer-grid">
+      <div class="footer-left">
+       <img src="../assets/images/icon.png" alt="Hajime ロゴ" class="footer-logo">
+       <p>© 2025 Hajime. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <ul class="footer-links">
+          <li><a href="../index.html">トップ</a></li>
+          <li><a href="../index.html#services">サービス</a></li>
+          <li><a href="../faq/faq.html">FAQ</a></li>
+          <li><a href="../contact/contact.html">お問い合わせ</a></li>
+          <li><a href="../terms/terms.html">利用規約</a></li>
+          <li><a href="https://github.com/k213009" target="_blank">GitHub</a></li>
+        </ul>
+       </div>
+    </div>
+</footer>
+
+<script src="plan-form.js"></script>
+</body>
+</html>

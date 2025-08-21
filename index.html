@@ -1,85 +1,139 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>かんたん事業計画ツール</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
-    label { display: block; margin-top: 10px; font-weight: bold; }
-    input, textarea { width: 100%; padding: 5px; margin-top: 5px; }
-    button { margin-top: 20px; padding: 10px 20px; }
-    .output { margin-top: 30px; background: #f9f9f9; padding: 20px; border-radius: 8px; }
-  </style>
-</head>
-<body>
-  <h1>かんたん事業計画ツール（デモ）</h1>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <title>Hajime</title>
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+ </head>
+ <body>
+    <header>
+     
+        <div class="header-left">
+            <img class="logo" src="assets/images/icon.png" alt="Hajimeロゴ">
+        </div>
+     
+    </header>
+    <div class="top-wrapper">
+        <div class="container">
+            <h1>夢をカタチに。</h1>
+            <p>Hajime は、あなたの「やってみたい」を「できる」に変える。</p>
+            <p>AIを活用した創業計画書の作成と、資金調達の準備をサポートする Web アプリです。</p>
+        </div>
+        <a href="plan/step.html" class="cta-button">今すぐ始める</a>
 
-  <button onclick="fillSampleData()">▶ ダミーデータを入力する</button>
+    </div>
+    <div class="about-wrapper">
+        <div class="container">
+            <h2>Hajime とは？</h2>
+            <div class="feature-box">
+              <p>
+              Hajime は、これから事業を始めたいと考える人のための創業計画書作成支援と資金調達の準備ができる Web アプリです。
+              </p>
 
-  <label>事業名</label>
-  <input type="text" id="businessName">
+            </div>
+            <div class="feature-box">
+               <h3>Hajime の目的</h3>
+              <p>
+               創業を夢見ていても、何から手をつければ良いか迷っていませんか？<br>
+               Hajimeは、あなたのための創業支援アプリです。元銀行員が経験をもとに、計画書の作成や資金調達の準備を誰でも簡単に行えるよう設計しました。<br>
+               作成した計画書はAIが診断し、プロの視点から評価とアドバイスを返してくれるので説得力のある事業計画に磨き上げることができます。
+              </p>
+            </div>
 
-  <label>事業概要</label>
-  <textarea id="businessDescription"></textarea>
+            <div class="feature-row">
+              <img src="assets/images/user.png" alt="対象ユーザー画像" class="feature-image">
+              <div class="feature-box">
+                <h3>対象ユーザー</h3>
+                <ul>
+                    <li>これから起業・独立を考えている人</li>
+                    <li>副業から本業にステップアップしたい個人事業主</li>
+                    <li>融資申請書の書き方がわからない人</li>
+                    <li>事業アイデアを整理したい人</li>
+               </ul>
+              </div>
+            </div>
 
-  <label>自己資金（円）</label>
-  <input type="number" id="ownFunds">
+            <div class="feature-row">
+             <div class="feature-box">
+                <h3>できること</h3>
+                <ul>
+                <li>フォームに沿って入力するだけで、創業計画書が作成できる</li>
+                <li>作成した創業計画書をAIが診断し、具体的な改善点をアドバイス</li>
+                <li>返済シミュレーションで月々の負担を確認</li>
+                <li>PDF形式でダウンロード・印刷が可能</li>
+                <li>資金調達（融資申請書）の準備ができる</li>
+                </ul>
+             </div>
+             <img src="assets/images/can.png" alt="できること画像" class="feature-image">
+            </div>
 
-  <label>借入額（円）</label>
-  <input type="number" id="loanAmount">
+        </div>
+   </div>
+   <div class="services-wrapper" id="services">
+     <div class="container">
+         <h2>サービス</h2>
+         <div class="services-grid">
+           <a href="plan/step.html" class="service-card">
+             <img src="assets/images/plan-icon.jpg" alt="創業計画書作成" class="service-icon">
+             <h3>創業計画書作成</h3>
+             <p>フォームに沿って入力するだけで、創業計画書を作成できます。</p>
+           </a>
 
-  <label>金利（年利%）</label>
-  <input type="number" step="0.1" id="interestRate">
+           <a href="repayment/repayment.html" class="service-card">
+              <img src="assets/images/simulation-icon.jpg" alt="返済シミュレーション" class="service-icon">
+              <h3>返済シミュレーション</h3>
+              <p>月々の返済額や総支払額を自動で試算できます。無理のない計画に。</p>
+           </a>
 
-  <label>返済期間（年）</label>
-  <input type="number" id="repaymentYears">
+           <a href="preparation/preparation.html" class="service-card">
+             <img src="assets/images/preparation-icon.jpg" alt="ユーザーの声" class="service-icon">
+             <h3>資金調達の準備</h3>
+             <p>元銀行員が融資獲得までのロードマップを解説。必要な流れや書類を整理できます。銀行から融資を受けるために必要な流れや書類を、わかりやすく整理できます。</p>
+           </a>
 
-  <button onclick="calculateRepayment()">📄 計画書を表示する</button>
 
-  <div class="output" id="planOutput"></div>
+         </div>
 
-  <script>
-    function fillSampleData() {
-      document.getElementById('businessName').value = '沖縄タコス専門店 OkiTacos';
-      document.getElementById('businessDescription').value = '国際通り近くにて、地元食材を活用した本格タコスを提供。観光客と地元民の両方に支持される店舗を目指します。';
-      document.getElementById('ownFunds').value = 1500000;
-      document.getElementById('loanAmount').value = 3000000;
-      document.getElementById('interestRate').value = 1.5;
-      document.getElementById('repaymentYears').value = 5;
-    }
+      </div>
+  </div>          
 
-    function calculateRepayment() {
-      const businessName = document.getElementById('businessName').value;
-      const businessDescription = document.getElementById('businessDescription').value;
-      const ownFunds = parseInt(document.getElementById('ownFunds').value);
-      const loanAmount = parseInt(document.getElementById('loanAmount').value);
-      const interestRate = parseFloat(document.getElementById('interestRate').value);
-      const years = parseInt(document.getElementById('repaymentYears').value);
+  <div class="question-wrapper">
+     <div class="container">
+        <h2>FAQ</h2>
+          <div class="question-grid">
+             <a href="faq/faq.html" class="question-card">
+                 <img src="assets/images/faq-icon.jpg" alt="FAQ" class="question-icon">
+                 <h3>よくある質問</h3>
+                 <p>「無料ですか？」「スマホ対応していますか？」など、疑問を解決！</p>
+             </a>
 
-      const months = years * 12;
-      const monthlyPrincipal = loanAmount / months;
-      let totalInterest = 0;
-      let remainingPrincipal = loanAmount;
-      for (let i = 0; i < months; i++) {
-        const monthlyInterest = remainingPrincipal * (interestRate / 100) / 12;
-        totalInterest += monthlyInterest;
-        remainingPrincipal -= monthlyPrincipal;
-      }
-      const totalRepayment = loanAmount + totalInterest;
+             <a href="contact/contact.html" class="question-card">
+                <img src="assets/images/contact-icon.jpg" alt="お問い合わせ" class="question-icon">
+                <h3>お問い合わせ</h3>
+                <p>ご不明点やご相談がある方はこちらからお気軽にどうぞ。</p>
+             </a>
 
-      document.getElementById('planOutput').innerHTML = `
-        <h2>📄 事業計画書（サンプル）</h2>
-        <p><strong>事業名：</strong>${businessName}</p>
-        <p><strong>概要：</strong>${businessDescription}</p>
-        <p><strong>自己資金：</strong>${ownFunds.toLocaleString()} 円</p>
-        <p><strong>借入額：</strong>${loanAmount.toLocaleString()} 円</p>
-        <p><strong>返済期間：</strong>${years} 年</p>
-        <p><strong>金利：</strong>${interestRate} %</p>
-        <p><strong>元金均等返済の総返済額：</strong>${Math.round(totalRepayment).toLocaleString()} 円</p>
-        <p><strong>利息総額：</strong>${Math.round(totalInterest).toLocaleString()} 円</p>
-        <p><strong>月々返済額（初月）：</strong>${Math.round(monthlyPrincipal + loanAmount * (interestRate / 100) / 12).toLocaleString()} 円</p>
-      `;
-    }
-  </script>
-</body>
+          </div>
+     </div>
+  </div>
+  
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-left">
+         <img src="assets/images/icon.png" alt="Hajime ロゴ" class="footer-logo">
+         <p>© 2025 Hajime. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+         <ul class="footer-links">
+               <li><a href="index.html">トップ</a></li>
+               <li><a href="#services">サービス</a></li>
+               <li><a href="faq/faq.html">FAQ</a></li>
+               <li><a href="contact/contact.html">お問い合わせ</a></li>
+               <li><a href="terms/terms.html">利用規約</a></li>
+               <li><a href="https://github.com/k213009" target="_blank">GitHub</a></li>
+        </ul>
+        </div>
+     </div>
+    </footer>
+ </body>
 </html>

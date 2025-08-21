@@ -1,0 +1,202 @@
+/* ============================= */
+/* 基本スタイル & 共通パーツ     */
+/* ============================= */
+body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: #f0f9ff;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* --- ヘッダー --- */
+header {
+    width: 100%;
+    height: 65px;
+    background-color: rgba(20, 20, 31, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.header-left {
+    float: left;
+}
+
+.logo {
+    width: 124px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+/* --- フッター --- */
+footer {
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(20, 20, 31, 0.9);
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    width: 125px;
+}
+
+footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    text-align: right;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00bcd4;
+}
+
+/* ============================= */
+/* お問い合わせページ専用スタイル */
+/* ============================= */
+
+.contact-page-wrapper {
+    padding-top: 15px;
+    min-height: calc(100vh - 220px);
+}
+
+.contact-wrapper {
+    padding: 80px 0;
+}
+
+.contact-wrapper h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.contact-wrapper h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #00bcd4;
+    margin: 16px auto 0;
+    border-radius: 2px;
+}
+
+.contact-message {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.2);
+}
+
+.submit-button {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0196a7;
+}
+
+.github-link-section {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.github-button {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.github-button:hover {
+    background-color: #555;
+}

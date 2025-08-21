@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>返済シミュレーション | Hajime</title>
+  <link rel="stylesheet" href="../assets/css/stylesheet.css" />
+</head>
+<body class="repayment-page">
+ <header>
+  <div class="header-left">
+    <a href="../index.html">
+      <img class="logo" src="../assets/images/icon.png" alt="Hajimeロゴ">
+    </a>
+  </div>
+ </header>
+
+  <div class="repayment-container">
+    <h1>返済シミュレーション</h1>
+
+    <!-- 入力フォーム -->
+    <form class="repayment-form">
+      <label>借入額（円）
+        <input type="text" id="amount" placeholder="例：1,000,000" required>
+      </label>
+
+      <label>金利（年利％）
+        <input type="number" step="0.01" id="interest" required min="0" />
+      </label>
+
+      <label>返済期間（月）
+        <input type="number" id="period" required min="1" 
+          title="事業用借入の場合、基本的に借入期間の最長は設備資金は10年（120ヶ月）、運転資金は7年（84ヶ月）です。" />
+      </label>
+
+      <label>据置期間（月）
+        <input type="number" id="grace" value="0" min="0" />
+      </label>
+
+      <div class="radio-group">
+        <span>返済方式：</span>
+        <label><input type="radio" name="method" value="principal_equal" checked /> 元金均等</label>
+        <label><input type="radio" name="method" value="annuity" /> 元利均等</label>
+      </div>
+
+      <button type="submit">シミュレーション実行</button>
+    </form>
+
+    <a href="../index.html" class="back-to-top">トップページに戻る</a>
+
+    <!-- 結果表示 -->
+    <div class="result-box" id="result-area"></div>
+  </div>
+
+  <script src="simulator.js"></script>
+  
+  <footer>
+  <div class="container footer-grid">
+    <div class="footer-left">
+      <img src="../assets/images/icon.png" alt="Hajime ロゴ" class="footer-logo">
+      <p>© 2025 Hajime. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+      <ul class="footer-links">
+         <li><a href="../index.html">トップ</a></li>
+         <li><a href="../index.html#services">サービス</a></li>
+         <li><a href="../faq/faq.html">FAQ</a></li>
+         <li><a href="../contact/contact.html">お問い合わせ</a></li>
+         <li><a href="../terms/terms.html">利用規約</a></li>
+         <li><a href="https://github.com/k213009" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+ </footer>
+
+</body>
+</html>

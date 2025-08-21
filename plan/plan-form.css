@@ -1,0 +1,324 @@
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-color: #f0f9ff;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.plan-page {
+  margin-top: 100px;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #222;
+  position: relative;
+  margin-top: 60px;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00bcd4;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.accordion {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.accordion-toggle {
+  background-color: #00bcd4;
+  color: white;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.accordion-toggle:hover {
+  background-color: #0196a7;
+}
+
+.accordion-content {
+  display: none;
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* === 修正版：入力フォームの見た目を統一するスタイル === */
+
+/* #business-plan-form の中の要素に限定して、スタイルを強力に適用 */
+#business-plan-form input[type="text"],
+#business-plan-form input[type="number"],
+#business-plan-form textarea,
+#business-plan-form select {
+  /* ブラウザのデフォルトスタイルをリセット */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* デザインを統一 */
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 16px; /* 各要素の下に余白を追加 */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+/* 読み取り専用の入力欄のスタイル */
+#business-plan-form input[readonly] {
+  background-color: #f0f0f0;
+  cursor: default;
+}
+
+/* 入力欄が選択されたときのスタイル */
+#business-plan-form input[type="text"]:focus,
+#business-plan-form input[type="number"]:focus,
+#business-plan-form textarea:focus,
+#business-plan-form select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+/* select要素に矢印（▼）を追加 */
+#business-plan-form select {
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: .65em auto;
+}
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #0196a7;
+}
+
+
+/* ダミー入力ボタン */
+#dummy-fill { 
+  padding: 6px 12px;
+  font-size: 18px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  display: inline-block;
+  width: auto;  
+}
+
+#dummy-fill:hover {
+  background-color: #1565c0;
+}
+
+.motive-section-wrapper {
+  text-align: right;
+  width: 100%;         
+  max-width: 800px;    
+  margin: 0 auto;     
+}
+
+.form-section {
+  max-width: 800px;
+  margin: 0 auto; /* 中央寄せ */
+  padding: 20px;
+}
+
+.s-button {
+  padding: 6px 12px;
+  font-size: 18px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  display: inline-block;
+  width: auto;  
+}
+
+.e-button,.r-button {
+  padding: 6px 18px;
+  margin-left: 15px;
+  font-size: 18px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  display: inline-block;
+  width: auto;  
+}
+
+.sa-button {
+  padding: 6px 18px;
+  margin-left: 15px;
+  font-size: 18px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 10;
+  display: inline-block;
+  width: auto;  
+}
+
+.show-section-wrapper {
+  text-align: center;
+  width: 100%;         
+  max-width: 800px;    
+  margin: 0 auto;     
+}
+
+#pdf-render-area {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 210mm;
+}
+
+/* === AI評価モーダル用の改善版スタイル === */
+
+/* 背景のオーバーレイ（変更なし） */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+/* モーダル本体（変更なし） */
+#modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 12px;
+    z-index: 101;
+    line-height: 1.7;
+}
+
+/* モーダルのメインタイトル「AIからの評価・アドバイス」 */
+#modal-content h2 {
+    text-align: center; /* タイトルは中央揃えのまま */
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.4em;
+}
+
+/* AIの返答が表示されるスクロールエリア */
+#ai-response-text {
+    text-align: left;   /* ★最重要：テキストを左寄せに修正 */
+    max-height: 60vh;   /* 画面の高さの60%を最大に */
+    overflow-y: auto;   /* 内容が多ければスクロールバーを出す */
+    border: 1px solid #e0e0e0;
+    padding: 15px 25px; /* 内側の余白を少し調整 */
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+/* --- Markdownによって生成されるHTMLタグのスタイル --- */
+
+/* 見出し（**理由** など） */
+#ai-response-text strong {
+    display: block; /* 常に改行されるようにブロック要素にする */
+    font-size: 1.1em;
+    color: #2c5d8a; /* 見出しの色をアクセントカラーに */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0; /* 見出しの下線 */
+}
+/* 最初の見出しの上余白は不要 */
+#ai-response-text strong:first-child {
+    margin-top: 0;
+}
+
+
+/* 通常の段落 */
+#ai-response-text p {
+    margin-bottom: 16px; /* 段落ごとの余白 */
+}
+
+/* 箇条書き（* 無添加... など） */
+#ai-response-text ul {
+    padding-left: 25px; /* 箇条書きのインデント */
+    margin-bottom: 16px;
+    list-style-type: disc; /* 黒丸のスタイル */
+}
+
+#ai-response-text li {
+    margin-bottom: 8px; /* 箇条書きの項目ごとの余白 */
+}
+
+/* 非表示にするためのクラス（変更なし） */
+.hidden {
+    display: none;
+}
+
+/* AI評価中（loadingクラスがついた時）は、閉じるボタンを非表示にする */
+#modal-content.loading #modal-close-button {
+    display: none;
+}

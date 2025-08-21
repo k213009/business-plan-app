@@ -1,0 +1,708 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.top-wrapper {
+  margin-top: 65px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-image: url("../images/top.png");
+  color: rgb(20, 20, 20);
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  text-align: left;
+}
+
+.top-wrapper h1 {
+  opacity: 0.8;
+  font-size: 55px;
+  letter-spacing: 6px;
+  padding-left: 40px;
+}
+
+.top-wrapper p {
+  opacity: 0.9;
+  padding-left: 40px;
+}
+
+.top-wrapper .cta-button {
+  background-color: rgba(108, 158, 245, 0.397);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-top: 25px;
+  margin-left: 220px;
+}
+
+.cta-button:hover {
+  background-color: #2084ef;
+}
+
+
+header {
+    width: 100%;
+    height: 65px;
+    background-color: rgba(20, 20, 31, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    width: 124px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.about-wrapper, .services-wrapper, .question-wrapper {
+  padding: 80px 0;
+  border-top: 1px solid #ddd;
+}
+
+
+.about-wrapper {
+  background: linear-gradient(to right, #f0f9ff, #ffffff);
+  padding: 80px 0;
+  color: #333;
+}
+
+.about-wrapper h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.about-wrapper h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00bcd4;
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.feature-row {
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: nowrap; /* 横並びを強制 */
+}
+
+.feature-row.reverse {
+  flex-direction: row-reverse; /* 反転で右側に画像 */
+}
+
+.feature-image {
+  width: 30%;
+  max-width: 215px;
+  height: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box {
+  flex: 1;
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+
+
+@media (max-width: 768px) {
+  .feature-row, .feature-row.reverse {
+    flex-direction: column; /* 小さい画面は縦並び */
+  }
+}
+
+
+
+.about-wrapper h3 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #00bcd4;
+}
+
+.about-wrapper ul {
+  list-style: disc inside;
+  line-height: 1.8;
+}
+
+.about-wrapper p {
+  line-height: 1.7;
+}
+
+.services-wrapper {
+  background-color: #ffffff;
+  padding: 60px 0;
+}
+
+.services-wrapper h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.services-wrapper h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00bcd4;
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.services-grid p {
+  text-align:left;
+}
+
+.service-card {
+  text-align: center;
+  background-color: #f8e3e3;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+  width: cover;
+  height: 125px;
+  margin-bottom: 10px;
+}
+
+.question-wrapper {
+  background-color: #ffffff;
+  padding: 60px 0;
+}
+
+.question-wrapper h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.question-wrapper h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00bcd4;
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.question-grid p {
+  text-align:left;
+}
+
+.question-card {
+  text-align: center;
+  background-color: #f8e3e3;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.question-icon {
+  width: cover;
+  height: 125px;
+  margin-bottom: 10px;
+}
+
+footer img {
+  width: 125px;
+}
+
+footer p {
+  color: #b3aeb5;
+  font-size: 12px;
+}
+
+footer {
+  margin-top: 30px;
+  padding: 15px 0px 30px 0px;
+  height: 185px;
+  background-color: rgba(20, 20, 31, 0.9);
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;  /* 1列にする */
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ============================= */
+/* 返済シミュレーションページ用 */
+/* ============================= */
+
+ .repayment-page{
+  margin-top: 100px;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background-color: #f0f9ff;
+}
+
+.repayment-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
+
+.repayment-container h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.repayment-container h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #00bcd4;
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.repayment-form {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.repayment-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.repayment-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.radio-group {
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.radio-group label {
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0196a7;
+}
+
+.result-box {
+  margin-top: 60px;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  display: none;
+}
+
+.result-box table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.result-box th,
+.result-box td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.result-box th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.result-box tr.total-row {
+  font-weight: bold;
+  background-color: #e0f7fa;
+}
+
+input[type="text"],
+input[type="number"] {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ----------------------------------
+   資金調達準備ページ (preparation.html)
+---------------------------------- */
+
+.prep-wrapper {
+  padding: 60px 0;
+  background-color: #f7f9fc;
+}
+
+.prep-wrapper .heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.prep-wrapper .heading h2 {
+  font-size: 18px;
+  color: #555;
+  font-weight: normal;
+}
+
+.prep-wrapper .heading h1 {
+  font-size: 36px;
+  margin-top: 40px;
+  color: #333;
+}
+
+.prep-section {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 40px;
+  color: #007bff;
+}
+
+.section-title i {
+  margin-right: 10px;
+}
+
+/* 1. タイムライン */
+.timeline {
+  position: relative;
+  padding-left: 50px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 23px;
+  width: 4px;
+  height: calc(100% - 50px);
+  background-color: #007bff;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item-last.timeline-item::before {
+  height: 0;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -53px;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border: 4px solid #f7f9fc;
+}
+
+.timeline-content {
+  /* アイコンと文章が重ならないように、文章ブロックに左余白を追加 */
+  margin-left: 20px;
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: #333;
+}
+
+.timeline-content p {
+  margin: 0;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* 2. 審査のポイント */
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 画像間の余白をさらに狭くする */
+  gap: 10px;
+}
+
+.point-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* アイコンと、その下の文章ブロックを中央揃えにする */
+}
+
+.point-icon {
+  /* 画像を大きくする */
+  width: 275px;
+  height: 200px;
+  margin-bottom: 5px;
+}
+
+.point-card h4,
+.point-card p {
+  /* 文章ブロックの最大幅を調整 */
+  max-width: 400px; 
+  width: 100%;
+  text-align: left;
+}
+
+.point-card h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.point-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 3. チェックリスト */
+.checklist-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.checklist-box {
+  width: 100%;
+}
+
+.checklist-box h3 {
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.checklist-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.checklist-box li {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.checklist-box li i {
+  color: #28a745;
+  margin-right: 12px;
+}
+
+.checklist-note {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f7f9fc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* 4. CTAセクション */
+.cta-section {
+  text-align: center;
+  background-color: #e9f5ff;
+}
+
+.cta-section h2 {
+  font-size: 24px;
+}
+
+.cta-section p {
+  margin-bottom: 30px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 25px;
+  border: 2px solid transparent;
+  border-radius: 35px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.cta-button {
+    background-color: #fff;
+  border-color: #007bff;
+  color: #007bff;
+}
+.cta-button:hover {
+  background-color: #007bff;
+  color: #fff;
+}

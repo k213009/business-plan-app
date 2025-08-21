@@ -1,0 +1,6 @@
+POST http://localhost:3001/evaluate
+Content-Type: application/json
+
+{
+    "text": "これはテストです。正しく動作しますか？"
+}

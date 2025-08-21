@@ -1,0 +1,218 @@
+/* ============================= */
+/* 基本スタイル & 共通パーツ     */
+/* ============================= */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f0f9ff;
+    padding-top: 65px; /* 固定ヘッダー分の余白 */
+}
+
+.container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* --- ヘッダー --- */
+header {
+    width: 100%;
+    height: 65px;
+    background-color: rgba(20, 20, 31, 0.9);
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+.header-left { 
+    float: left; 
+}
+.logo { 
+    width: 124px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+/* --- フッター --- */
+footer {
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(20, 20, 31, 0.9);
+    color: white;
+    font-size: 0.875rem; /* text-sm */
+}
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.footer-logo { 
+    width: 125px; 
+}
+footer p { 
+    color: rgb(156 163 175); /* text-gray-400 */
+    font-size: 0.75rem; /* text-xs */
+}
+.footer-links { 
+    list-style: none;
+    padding: 0;
+    text-align: right;
+}
+.footer-links li { 
+    margin-bottom: 0.625rem; /* mb-2.5 */
+}
+.footer-links a { 
+    color: white;
+    text-decoration: none;
+    transition-property: color;
+    transition-duration: 0.3s;
+}
+.footer-links a:hover { 
+    color: rgb(34 211 238); /* text-cyan-400 */
+}
+
+.footer-container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* ============================= */
+/* このページ専用のスタイル      */
+/* ============================= */
+.page-wrapper { 
+    padding-top: 3rem; /* py-12 */
+    padding-bottom: 3rem; /* py-12 */
+}
+.page-header { 
+    margin-bottom: 3rem; /* mb-12 */
+    text-align: center;
+}
+.page-title {
+    position: relative;
+    display: inline-block;
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    color: rgb(31 41 55); /* text-gray-800 */
+}
+.page-title::after {
+    content: '';
+    display: block;
+    width: 4rem; /* w-16 */
+    height: 0.25rem; /* h-1 */
+    background-color: rgb(59 130 246); /* bg-blue-500 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem; /* mt-4 */
+    border-radius: 0.25rem; /* rounded */
+}
+.page-description {
+    margin-top: 1.5rem; /* mt-6 */
+    max-width: 42rem; /* max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 1.125rem; /* text-lg */
+    color: rgb(75 85 99); /* text-gray-600 */
+    line-height: 1.75; /* leading-relaxed */
+}
+
+.steps-container { 
+    max-width: 56rem; /* max-w-4xl */
+    margin-left: auto;
+    margin-right: auto;
+}
+.steps-container > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(3rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(3rem * var(--tw-space-y-reverse));
+}
+
+
+.step-card {
+    background-color: white;
+    border-radius: 1.5rem; /* rounded-3xl */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+    padding: 2rem; /* p-8 */
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* gap-8 */
+    transition: transform 0.3s;
+}
+.step-card:hover { 
+    transform: translateY(-0.25rem); /* -translate-y-1 */
+}
+
+.step-icon-wrapper {
+    flex-shrink: 0;
+    width: 5rem; /* w-20 */
+    height: 5rem; /* h-20 */
+    background-color: rgb(79 70 229); /* bg-indigo-600 */
+    border-radius: 9999px; /* rounded-full */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-number {
+    color: white;
+    font-size: 2.25rem; /* text-4xl */
+    font-weight: 700; /* font-bold */
+    line-height: 1; /* leading-none */
+}
+.step-content { 
+    flex-grow: 1; 
+}
+.step-title { 
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    margin-top: 0.5rem; /* mt-2 */
+}
+.step-description { 
+    color: rgb(75 85 99); /* text-gray-600 */
+    margin-top: 0.5rem; /* mt-2 */
+}
+
+.button-wrapper { 
+    margin-top: 1rem; /* mt-4 */
+}
+.cta-button {
+    display: inline-block;
+    background-color: rgb(59 130 246); /* bg-blue-500 */
+    color: white;
+    font-weight: 700; /* font-bold */
+    padding: 0.75rem 1.5rem; /* py-3 px-6 */
+    border-radius: 9999px; /* rounded-full */
+    text-decoration: none;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+}
+.cta-button:hover { 
+    background-color: rgb(37 99 235); /* bg-blue-600 */
+}
+
+.question-list { 
+    margin-top: 0.5rem; /* mt-2 */
+    list-style: none;
+    padding: 0;
+    color: rgb(75 85 99); /* text-gray-600 */
+}
+.question-list li { 
+    position: relative;
+    padding-left: 1.5rem; /* pl-6 */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+.question-list li::before {
+    content: "▶︎";
+    position: absolute;
+    left: 0;
+    color: rgb(59 130 246); /* text-blue-500 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .step-card {
+        flex-direction: column;
+    }
+}

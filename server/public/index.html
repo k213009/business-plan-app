@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>AI事業計画評価ツール</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 40px auto; }
+        textarea { width: 100%; height: 150px; }
+        button { padding: 10px 20px; margin-top: 10px; }
+        #result { margin-top: 20px; background: #f0f0f0; padding: 15px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>AI事業計画評価ツール</h1>
+    <p>評価したい事業内容を入力してください。</p>
+
+    <textarea id="business-text" placeholder="例：沖縄県産の素材を使った、観光客向けの新しいスイーツを開発・販売します。"></textarea>
+    <button id="evaluate-button">AIに評価してもらう</button>
+
+    <h2>AIからの評価</h2>
+    <div id="result">ここに評価結果が表示されます。</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
