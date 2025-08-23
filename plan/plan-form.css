@@ -9,6 +9,15 @@ body {
   margin-top: 100px;
 }
 
+/* plan-page専用のコンテナ設定を追加して、他のスタイルを打ち消す */
+.plan-container {
+  /* 必ず margin: 0 auto; で中央寄せを指定 */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px; /* スマホ表示用に左右に少しだけ余白を持たせる */
+  box-sizing: border-box;
+}
+
 h1, h2 {
   text-align: center;
   color: #222;

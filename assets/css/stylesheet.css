@@ -706,3 +706,76 @@ input[type="number"] {
   background-color: #007bff;
   color: #fff;
 }
+
+/* ============================================= */
+/* ▼▼▼ スマートフォン向けレスポンシブ対応 ▼▼▼ */
+/* ============================================= */
+@media screen and (max-width: 768px) {
+
+    /* --- トップ --- */
+    .top-wrapper {
+        height: auto; /* 高さを自動に */
+        padding: 60px 0;
+        text-align: center; /* 中央揃えに */
+    }
+
+    .top-wrapper h1 {
+        font-size: 32px;
+        padding-left: 0; /* 左の余白をリセット */
+        letter-spacing: 2px; /* 文字間を少し詰める */
+    }
+
+    .top-wrapper p {
+        padding-left: 0; /* 左の余白をリセット */
+        font-size: 14px;
+    }
+
+    .top-wrapper .cta-button {
+        margin-left: 0; /* 左の余白をリセット */
+        width: 80%; /* 幅を調整 */
+        box-sizing: border-box; /* paddingを含めた幅計算に */
+    }
+
+    /* --- 各セクション --- */
+    .about-wrapper, .services-wrapper, .question-wrapper {
+        padding: 60px 0;
+    }
+
+    .about-wrapper h2, .services-wrapper h2, .question-wrapper h2 {
+        font-size: 28px;
+    }
+
+    .feature-row {
+        flex-direction: column; /* 縦並びにする */
+        align-items: center; /* 中央に寄せる */
+    }
+
+    .feature-image {
+        width: 80%; /* 画像幅を調整 */
+        max-width: none;
+        margin-bottom: 20px;
+    }
+
+    /* --- サービスとFAQのカードを1列にする --- */
+    .services-grid, .question-grid {
+        grid-template-columns: 1fr; /* 1列表示に強制 */
+    }
+
+    /* --- フッター --- */
+
+    footer {
+        height: auto; /* 高さを自動に調整 */
+        padding-top: 30px; /* 上部に余白を追加 */
+        padding-bottom: 30px; /* 下部に余白を追加 */
+    }
+    
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .footer-links {
+        text-align: center;
+    }
+}

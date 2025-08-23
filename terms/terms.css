@@ -158,3 +158,27 @@ footer p {
     margin-top: 40px;
     color: #555;
 }
+
+/* ============================================= */
+/* ▼▼▼ スマートフォン向けレスポンシブ対応 ▼▼▼ */
+/* ============================================= */
+@media screen and (max-width: 768px) {
+    .terms-wrapper {
+        padding: 40px 0;
+    }
+    .terms-wrapper h2 {
+        font-size: 24px;
+    }
+    .terms-content {
+        padding: 20px;
+    }
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer-links {
+        text-align: center;
+    }
+}
+

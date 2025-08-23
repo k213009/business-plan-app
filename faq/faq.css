@@ -125,7 +125,7 @@ footer p {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    margin: 40px 190px 0px 190px;
+    margin: 40px 190px 0 190px;
 }
 
 .faq-item {
@@ -203,4 +203,49 @@ footer p {
 .faq-question.active .icon {
     transform: rotate(45deg);
     color: #00bcd4;
+}
+/* スマホ対応：画面幅が768px以下のとき */
+@media screen and (max-width: 768px) {
+    .faq-container {
+        margin: 20px 15px; /* 左右の余白を小さく */
+    }
+
+    .question-wrapper h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .faq-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        margin-right: 12px;
+    }
+
+    .faq-answer p {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .logo,
+    .footer-logo {
+        width: 100px;
+        margin: 0 auto;
+    }
 }
