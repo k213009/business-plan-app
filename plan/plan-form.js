@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let success = false;
             for (let attempt = 1; attempt <= maxRetries; attempt++) {
                 try {
-                    const response = await fetch('http://localhost:3001/evaluate', {
+                    const response = await fetch('https://hajime-server.onrender.com/evaluate', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ text: fullText }),
