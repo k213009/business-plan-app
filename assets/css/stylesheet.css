@@ -523,7 +523,7 @@ input[type="number"] {
   top: 25px;
   left: 23px;
   width: 4px;
-  height: calc(100% - 50px);
+  height: calc(100% - 100px);
   background-color: #007bff;
   border-radius: 2px;
 }
@@ -531,10 +531,6 @@ input[type="number"] {
 .timeline-item {
   position: relative;
   margin-bottom: 40px;
-}
-
-.timeline-item-last.timeline-item::before {
-  height: 0;
 }
 
 .timeline-item:last-child {
@@ -693,7 +689,7 @@ input[type="number"] {
 }
 
 .cta-button {
-    background-color: #fff;
+  background-color: #fff;
   border-color: #007bff;
   color: #007bff;
 }
