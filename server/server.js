@@ -24,7 +24,7 @@ app.post('/evaluate', async (req, res) => {
     try {
         const { text } = req.body;
 
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+        const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
        // AIへの指示（プロンプト）を作成
         const prompt = `

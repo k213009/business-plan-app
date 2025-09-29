@@ -15,7 +15,7 @@ evaluateButton.addEventListener('click', async () => {
 
     try {
         // 作成したサーバーに文章を送る
-        const response = await fetch('http://localhost:3001/evaluate', {
+        const response = await fetch('https://hajime-server.onrender.com/evaluate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
